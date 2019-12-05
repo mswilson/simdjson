@@ -29,7 +29,18 @@ really_inline void find_whitespace_and_operators(
   whitespace = v.map([&](simd8<uint8_t> _v) { return _v.any_bits_set(0x18); }).to_bitmask();
 }
 
-#include "generic/utf8_fastvalidate_algorithm.h"
+really_inline simd8<uint8_t> lookup_flipped_low_bits(
+  simd8<uint8_t> flipped,
+  uint8_t in1, uint8_t in2, uint8_t in3, uint8_t in4, uint8_t in5, uint8_t in6, uint8_t in7, uint8_t in8,
+  uint8_t in9, uint8_t in10, uint8_t in11, uint8_t in12, uint8_t in13, uint8_t in14, uint8_t in15, uint8_t in16
+) {
+  return (flipped & 0x0F).lookup_16<uint8_t>(
+    in1, in2, in3, in4, in5, in6, in7, in8,
+    in9, in10, in11, in12, in13, in14, in15, in16
+  );
+}
+
+#include "generic/utf8_lookup2_algorithm.h"
 #include "generic/stage1_find_marks.h"
 
 } // namespace simdjson::arm64
