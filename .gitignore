@@ -54,8 +54,11 @@ objs
 /allparserscheckfile
 /basictests
 /benchmark/parse
+/benchmark/parse_stream
 /benchmark/perfdiff
 /benchmark/statisticalmodel
+/fuzz/fuzz_dump
+/fuzz/fuzz_parser
 /json2json
 /jsoncheck
 /jsoncheck_noavx
@@ -84,8 +87,8 @@ objs
 /tests/integer_tests
 /tools/json2json
 /tools/jsonstats
+/tests/jsonstream_test
 /tools/minify
-
 # C++ ignore from https://github.com/github/gitignore/blob/master/C%2B%2B.gitignore
 
 # Prerequisites
